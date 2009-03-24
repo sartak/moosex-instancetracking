@@ -3,7 +3,6 @@ use Moose::Role;
 use Set::Object::Weak;
 
 has _instances => (
-    is      => 'ro',
     isa     => 'Set::Object::Weak',
     default => sub { Set::Object::Weak->new },
     lazy    => 1,
