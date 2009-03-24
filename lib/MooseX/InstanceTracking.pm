@@ -6,11 +6,12 @@ has _instances => (
     is      => 'ro',
     isa     => 'Set::Object::Weak',
     default => sub { Set::Object::Weak->new },
-    handles => {
-        instances => 'members',
-        track_instance => 'insert',
-    },
     lazy    => 1,
+    handles => {
+        instances        => 'members',
+        track_instance   => 'insert',
+        untrack_instance => 'remove',
+    },
 );
 
 around 'construct_instance', 'clone_instance' => sub {
