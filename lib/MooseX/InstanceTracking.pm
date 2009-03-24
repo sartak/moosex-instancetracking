@@ -7,9 +7,9 @@ has _instances => (
     default => sub { Set::Object::Weak->new },
     lazy    => 1,
     handles => {
-        instances        => 'members',
-        track_instance   => 'insert',
-        untrack_instance => 'remove',
+        instances         => 'members',
+        _track_instance   => 'insert',
+        _untrack_instance => 'remove',
     },
 );
 
@@ -23,7 +23,7 @@ around 'construct_instance', 'clone_instance' => sub {
     my $self = shift;
 
     my $instance = $orig->($self, @_);
-    $self->track_instance($instance);
+    $self->_track_instance($instance);
 
     return $instance;
 };
@@ -32,14 +32,14 @@ after rebless_instance => sub {
     my $self     = shift;
     my $instance = shift;
 
-    $self->track_instance($instance);
+    $self->_track_instance($instance);
 };
 
 before rebless_instance_away => sub {
     my $self     = shift;
     my $instance = shift;
 
-    $self->untrack_instance($instance);
+    $self->_untrack_instance($instance);
 };
 
 before make_immutable => sub {
