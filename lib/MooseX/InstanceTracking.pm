@@ -27,6 +27,18 @@ around 'construct_instance', 'clone_instance' => sub {
     return $instance;
 };
 
+around rebless_instance => sub {
+    my $orig     = shift;
+    my $self     = shift;
+    my $instance = shift;
+
+    my $return = $orig->($self, $instance, @_);
+
+    $self->track_instance($return);
+
+    return $return;
+};
+
 before make_immutable => sub {
     confess "Instance tracking does not yet work with make_immutable.";
 };
