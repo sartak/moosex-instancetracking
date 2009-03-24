@@ -8,14 +8,10 @@ has _instances => (
     default => sub { Set::Object::Weak->new },
     handles => {
         instances => 'members',
+        track_instance => 'insert',
     },
     lazy    => 1,
 );
-
-sub track_instance {
-    my $self = shift;
-    $self->_instances->insert(@_);
-}
 
 around 'construct_instance', 'clone_instance' => sub {
     my $orig = shift;
