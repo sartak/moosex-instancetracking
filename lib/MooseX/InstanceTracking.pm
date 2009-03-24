@@ -6,13 +6,11 @@ has _instances => (
     is      => 'ro',
     isa     => 'Set::Object::Weak',
     default => sub { Set::Object::Weak->new },
+    handles => {
+        instances => 'members',
+    },
     lazy    => 1,
 );
-
-sub instances {
-    my $self = shift;
-    @{ $self->_instances };
-}
 
 sub track_instance {
     my $self = shift;
