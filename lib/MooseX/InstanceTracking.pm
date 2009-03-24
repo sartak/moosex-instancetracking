@@ -103,6 +103,8 @@ subclasses are not included in this set.
 Returns the B<unordered> set of instances of this direct class and all of its
 subclasses.
 
+=back
+
 =head1 PRIVATE METHODS
 
 You should probably not call these methods. If you extend Moose by adding some
