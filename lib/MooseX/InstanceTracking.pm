@@ -24,16 +24,18 @@ around 'construct_instance', 'clone_instance' => sub {
     return $instance;
 };
 
-around rebless_instance => sub {
-    my $orig     = shift;
+after rebless_instance => sub {
     my $self     = shift;
     my $instance = shift;
 
-    my $return = $orig->($self, $instance, @_);
+    $self->track_instance($instance);
+};
 
-    $self->track_instance($return);
+before rebless_instance_away => sub {
+    my $self     = shift;
+    my $instance = shift;
 
-    return $return;
+    $self->untrack_instance($instance);
 };
 
 before make_immutable => sub {
