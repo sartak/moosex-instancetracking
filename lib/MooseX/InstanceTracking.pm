@@ -13,6 +13,11 @@ has _instances => (
     },
 );
 
+sub get_all_instances {
+    my $self = shift;
+    map { $_->meta->instances } $self->name, $self->subclasses;
+}
+
 around 'construct_instance', 'clone_instance' => sub {
     my $orig = shift;
     my $self = shift;
