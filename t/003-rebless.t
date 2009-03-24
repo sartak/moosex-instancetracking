@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Test::More tests => 2;
+use Test::More tests => 4;
 
 do {
     package Tracked;
@@ -13,8 +13,12 @@ do {
 };
 
 my $foo = Tracked->new;
+
+is_deeply([Tracked->meta->instances],     [$foo]);
+is_deeply([MoreTracked->meta->instances], []);
+
 MoreTracked->meta->rebless_instance($foo);
 
-is_deeply([Tracked->meta->instances], []);
+is_deeply([Tracked->meta->instances],     []);
 is_deeply([MoreTracked->meta->instances], [$foo]);
 
