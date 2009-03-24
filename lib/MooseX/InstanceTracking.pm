@@ -2,7 +2,7 @@ package MooseX::InstanceTracking;
 use Moose::Role;
 use Set::Object::Weak;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 has _instances => (
     isa     => 'Set::Object::Weak',
