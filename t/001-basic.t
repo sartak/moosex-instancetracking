@@ -6,7 +6,8 @@ use Test::More tests => 4;
 my $collected = 0;
 do {
     package Tracked;
-    use Moose -traits => 'MooseX::InstanceTracking';
+    use Moose;
+    use MooseX::InstanceTracking;
 
     sub DEMOLISH { ++$collected }
 };

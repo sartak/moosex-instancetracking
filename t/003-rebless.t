@@ -5,7 +5,8 @@ use Test::More tests => 6;
 
 do {
     package Tracked;
-    use Moose -traits => 'MooseX::InstanceTracking';
+    use Moose;
+    use MooseX::InstanceTracking;
 
     package MoreTracked;
     use Moose;
