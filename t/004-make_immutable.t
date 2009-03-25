@@ -14,4 +14,3 @@ do {
 my $foo = Tracked->new;
 is_deeply([Tracked->meta->instances], [$foo]);
 
-
