@@ -14,8 +14,9 @@ sub init_meta {
     Moose->init_meta(%p);
 
     return Moose::Util::MetaRole::apply_metaclass_roles(
-        for_class       => $p{for_class},
+        for_class  => $p{for_class},
         metaclass_roles => [ 'MooseX::InstanceTracking::Role::Class' ],
+        constructor_class_roles => [ 'MooseX::InstanceTracking::Role::Constructor' ],
     );
 }
 
