@@ -5,6 +5,8 @@ use warnings;
 use Moose::Exporter;
 use MooseX::InstanceTracking::Role::Class;
 
+our $VERSION = '0.02';
+
 Moose::Exporter->setup_import_methods();
 
 sub init_meta {

@@ -2,8 +2,6 @@ package MooseX::InstanceTracking::Role::Class;
 use Moose::Role;
 use Set::Object::Weak;
 
-our $VERSION = '0.02';
-
 has _instances => (
     isa     => 'Set::Object::Weak',
     default => sub { Set::Object::Weak->new },
