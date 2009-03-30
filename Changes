@@ -1,4 +1,5 @@
-0.03
+0.03  2009-03-29
+    Declare dependency on Set::Object::Weak
 
 0.02  2009-03-25
     The interface has changed to:
