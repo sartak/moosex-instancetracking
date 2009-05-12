@@ -37,11 +37,11 @@ MooseX::InstanceTracking - Trait for tracking all instances of a class
     use Moose;
     use MooseX::InstanceTracking;
     
-    my $jerry = Employee->new;
-    my $george = Employee->new;
+    my $merrill = Employee->new;
+    my $howard = Employee->new;
     
-    Employee->meta->instances; # $jerry, $george (or $george, $jerry)
-    Employee->meta->get_all_instances; # $jerry, $george (or $george, $jerry)
+    Employee->meta->instances; # $merrill, $howard (or $howard, $merrill)
+    Employee->meta->get_all_instances; # $merrill, $howard (or $howard, $merrill)
     
     
     package Employee::Chef;
@@ -50,8 +50,8 @@ MooseX::InstanceTracking - Trait for tracking all instances of a class
     
     my $kalin = Employee::Chef->new;
     
-    Employee->meta->instances; # $jerry, $george (or $george, $jerry)
-    Employee->meta->get_all_instances; # $jerry, $george, $kalin
+    Employee->meta->instances; # $merrill, $howard (or $howard, $merrill)
+    Employee->meta->get_all_instances; # $merrill, $howard, $kalin (or $howard,  $merrill, $kalin)
 
 =head1 DESCRIPTION
 
