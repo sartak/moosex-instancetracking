@@ -36,20 +36,20 @@ MooseX::InstanceTracking - Trait for tracking all instances of a class
     package Employee;
     use Moose;
     use MooseX::InstanceTracking;
-    
+
     my $merrill = Employee->new;
     my $howard = Employee->new;
-    
+
     Employee->meta->instances; # $merrill, $howard (or $howard, $merrill)
     Employee->meta->get_all_instances; # $merrill, $howard (or $howard, $merrill)
-    
-    
+
+
     package Employee::Chef;
     use Moose;
     extends 'Employee';
-    
+
     my $kalin = Employee::Chef->new;
-    
+
     Employee->meta->instances; # $merrill, $howard (or $howard, $merrill)
     Employee->meta->get_all_instances; # $merrill, $howard, $kalin (or $howard,  $merrill, $kalin)
 
