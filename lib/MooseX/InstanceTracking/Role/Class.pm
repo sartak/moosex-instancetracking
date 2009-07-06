@@ -18,7 +18,7 @@ sub get_all_instances {
     map { $_->meta->instances } $self->name, $self->subclasses;
 }
 
-around 'construct_instance', 'clone_instance' => sub {
+around '_construct_instance', '_clone_instance' => sub {
     my $orig = shift;
     my $self = shift;
 
