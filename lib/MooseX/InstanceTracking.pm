@@ -1,7 +1,4 @@
 package MooseX::InstanceTracking;
-use strict;
-use warnings;
-
 use Moose::Exporter;
 use MooseX::InstanceTracking::Role::Class;
 
