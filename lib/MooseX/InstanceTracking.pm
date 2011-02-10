@@ -7,20 +7,12 @@ use MooseX::InstanceTracking::Role::Class;
 
 our $VERSION = '0.04';
 
-Moose::Exporter->setup_import_methods();
-
-sub init_meta {
-    shift;
-    my %p = @_;
-
-    Moose->init_meta(%p);
-
-    return Moose::Util::MetaRole::apply_metaclass_roles(
-        for_class  => $p{for_class},
-        metaclass_roles => [ 'MooseX::InstanceTracking::Role::Class' ],
-        constructor_class_roles => [ 'MooseX::InstanceTracking::Role::Constructor' ],
-    );
-}
+Moose::Exporter->setup_import_methods(
+    class_metaroles => {
+        class       => ['MooseX::InstanceTracking::Role::Class'],
+        constructor => ['MooseX::InstanceTracking::Role::Constructor'],
+    },
+);
 
 
 1;
