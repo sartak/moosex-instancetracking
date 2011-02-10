@@ -10,7 +10,9 @@ our $VERSION = '0.04';
 Moose::Exporter->setup_import_methods(
     class_metaroles => {
         class       => ['MooseX::InstanceTracking::Role::Class'],
-        constructor => ['MooseX::InstanceTracking::Role::Constructor'],
+        ($Moose::VERSION < 1.9900
+            ? (constructor => ['MooseX::InstanceTracking::Role::Constructor'])
+            : ()),
     },
 );
 
