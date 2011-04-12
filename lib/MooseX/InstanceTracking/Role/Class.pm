@@ -52,7 +52,7 @@ around _inline_generate_instance => sub {
         @generate_instance,
         'Moose::Meta::Class->initialize(' . $class_var . ')->_track_instance(' . $var . ');',
     );
-} if $Moose::VERSION >= 1.9900;
+};
 
 1;
 
