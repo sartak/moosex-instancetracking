@@ -1,6 +1,5 @@
 package MooseX::InstanceTracking;
 use Moose::Exporter;
-use MooseX::InstanceTracking::Role::Class;
 
 our $VERSION = '0.06';
 
