@@ -2,7 +2,7 @@ package MooseX::InstanceTracking;
 use Moose::Exporter;
 use MooseX::InstanceTracking::Role::Class;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 Moose::Exporter->setup_import_methods(
     class_metaroles => {

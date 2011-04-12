@@ -1,3 +1,6 @@
+0.06  2011-04-12
+    Use the shiny new Moose 2.0 API for inlining constructor code (doy)
+
 0.05  2010-07-24
     Use the new Moose::Exporter API
 
